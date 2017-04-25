@@ -1,0 +1,28 @@
+
+<div class="row">
+  <div class="col-sm-8">
+    <h2>My Groceries</h2>
+    <ul class="groceries">
+      <li *ngFor="let grocery of groceries" (click)="onSelect(grocery)"
+        [class.selected]="grocery === selectedGrocery">
+        <span class="badge">{{grocery.id}}</span>
+        <span>{{grocery.name}}</span>
+        <span> - ${{grocery.price}}</span>
+        <button class="delete"
+          (click)="addToCart(grocery); $event.stopPropagation()" title="Add to My Cart">+</button>
+      </li>
+    </ul>
+
+    <div>
+        <h3>Add New Grocery Item</h3>
+      <label>Grocery name:</label> <input #groceryName />
+      <label>Grocery price:</label> $<input #groceryPrice />
+      <button (click)="add(groceryName.value,groceryPrice.value); groceryName.value=''; groceryPrice.value=''">
+        Add
+      </button>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <drop-cart></drop-cart>
+  </div>
+</div>

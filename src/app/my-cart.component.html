@@ -1,0 +1,27 @@
+    <h2>My Cart</h2>
+    <ul class="groceries">
+      <li *ngFor="let grocery of groceries" (click)="onSelect(grocery)"
+        [class.selected]="grocery === selectedGrocery">
+        <span class="badge">{{grocery.id}}</span>
+        <span>{{grocery.name}}</span>
+        <span class="price">${{grocery.price}}</span>
+        <button class="delete"
+          (click)="delete(grocery); $event.stopPropagation()">x</button>
+      </li>
+    </ul>
+    <div class="total">
+      <span>Total: $</span>
+      <span>{{groceriesTotal}}</span> 
+    </div>
+   <!--<div *ngIf="selectedGrocery">
+      <h2>
+        {{selectedGrocery.name | uppercase}} is my grocery
+      </h2>
+      <button (click)="gotoDetail()">View Details</button>
+    </div>-->
+    <!--<div>
+      <label>Grocery name:</label> <input #groceryName />
+      <button (click)="add(groceryName.value); groceryName.value=''">
+        Add
+      </button>
+    </div>-->
