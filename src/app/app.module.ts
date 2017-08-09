@@ -1,7 +1,10 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule }   from '@angular/forms';
 import { HttpModule }    from '@angular/http';
+
+import { MaterialsModule } from './materials.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -18,10 +21,12 @@ import { GroceryService }       from './groceries.service';
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialsModule
   ],
   declarations: [
     AppComponent,

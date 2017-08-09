@@ -15,8 +15,13 @@
 
     <div>
         <h3>Add New Grocery Item</h3>
-      <label>Grocery name:</label> <input #groceryName />
-      <label>Grocery price:</label> $<input #groceryPrice />
+      <md-input-container>
+        <input placeholder="Grocery name" mdInput #groceryName />
+      </md-input-container>
+      $
+      <md-input-container>
+        <input placeholder="Grocery price" mdInput #groceryPrice />
+      </md-input-container>
       <button (click)="add(groceryName.value,groceryPrice.value); groceryName.value=''; groceryPrice.value=''">
         Add
       </button>
